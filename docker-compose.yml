@@ -1,0 +1,33 @@
+services:
+  librespot:
+    image: ghcr.io/salmanmohammadi/librespot-pi:latest
+    container_name: librespot
+    restart: unless-stopped
+    network_mode: host
+    devices:
+      - /dev/snd:/dev/snd
+    volumes:
+      - ./auth-cache:/tmp/auth-cache
+    group_add:
+      - "audio"
+    command:
+      - "--name"
+      - "LibreSpot Pi"
+      - "--backend"
+      - "alsa"
+      - "--mixer"
+      - "alsa"
+      - "--alsa-mixer-control"
+      - "Digital"
+      - "--alsa-mixer-device"
+      - "hw:0"
+      - "--volume-ctrl"
+      - "log"
+      - "--volume-range"
+      - "100"
+      - "--initial-volume"
+      - "50"
+      - "--system-cache"
+      - "/tmp/auth-cache"
+      - "--enable-oauth"
+      - "--verbose"
