@@ -1,4 +1,4 @@
-FROM rust:latest AS builder
+FROM rust:bookworm AS builder
 # Install cross-compilation dependencies
 RUN apt-get update && apt-get install -y \
     pkg-config \
