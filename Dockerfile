@@ -22,7 +22,7 @@ ENV PKG_CONFIG_ALLOW_CROSS=1
 
 WORKDIR /build
 
-# Clone librespot dev branch
+# Clone librespot
 RUN git clone --branch dev https://github.com/librespot-org/librespot.git .
 
 # Build for ARM64 with ALSA backend
